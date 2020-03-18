@@ -1,0 +1,16 @@
+{
+    "authentication": {
+        "cli": {
+            #TODO: fill in the missing cli authentication parameters
+        }
+    },
+    "connection": {
+        "hostname": "{{ hostname }}",
+        "cli": {
+            "hostport": {{ hostport|int or 22 }}
+        }
+        #TODO: check if your endpoint(s) are missing any connection parameters
+    },
+    "description": "{{ description }}",
+    "typeGroup": "/typeGroups/NixServer"
+}

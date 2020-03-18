@@ -1,0 +1,9 @@
+{
+    "docker": {
+        "family": "NixDockerServer",
+        "dir": ".",
+        "version": [
+            "0.0.0.0"
+        ]
+    }
+}

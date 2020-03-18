@@ -1,0 +1,6 @@
+{
+    "NixDockerServer": {
+        "dir": ".",
+        "displayName": "NixDockerServer"
+    }
+}

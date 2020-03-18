@@ -1,0 +1,26 @@
+{
+    "manhole": {
+        "active": true,
+        "port": 9997,
+        "multiport": true
+    },
+    "test": {
+        "endpoints": {
+            "cli": {
+                "type": "bpprov.components.cli.CliEndpoint",
+                "parameters": {
+                    "hostname": "h1",
+                    "hostport": 1,
+                    "username": "u1",
+                    "password": "p1",
+                    "prompt": ">",
+                    "transport": "bpprov.components.cli_transport.TestTransport"
+                }
+            },
+            "null": {
+                "type": "bpprov.components.null.NullEndpoint",
+                "parameters": {}
+            }
+        }
+    }
+}
