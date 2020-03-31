@@ -1,13 +1,39 @@
 {
-    "endpoint": "null",
-    "type": "bpprov.runners.simple.Sequence",
-    "out-path": [
-    ],
+  "endpoint": "cli",
+  "type": "bpprov.runners.simple.Sequence",
+  "endpoint-parameters": {
+    "command": "uname -snrmpo",
+    "fsm": "fsms/show-device.fsm"
+    },
+    "out-path": [   ],
     "in-schema": "in-show-device.json",
     "in-path": [{
-        "type": "bpprov.translators.importer.JsonContents",
-        "parameters": {
-            "file": "data/example-device.json"
+      "type": "bpprov.translators.list.Flatten"
+    }, {
+      "type": "bpprov.translators.list.ToDict",
+      "parameters": {
+        "labels": [ "kernel", "node", "release", "processor", "os" ]
+          }
+    }, {
+      "type": "bpprov.translators.aggregator.Call",
+      "parameters": {
+        "command": "/commands/show-docker-version.json",
+        "output": {
+           "patches": [{
+             "from": "/data/dockerVersion",
+             "to": "/data/dockerVersion"
+           },
+           {
+             "from": "/data/dockerBuild",
+             "to": "/data/dockerBuild"
+           }]
         }
+      }
+    }, {
+      "type": "bpprov.translators.template.Json",
+      "parameters": {
+        "template": "show-device.tmpl",
+        "as_object": true
+      }
     }]
 }

@@ -1,0 +1,8 @@
+Value Version (\S+)
+Value Build (\S+)
+
+Start
+# Docker version 1.12.6-cs13, build 0ee24d4
+  ^Docker version ${Version}, build ${Build} -> Record
+
+EOF

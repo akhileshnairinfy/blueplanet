@@ -1,0 +1,12 @@
+Value KernelName (\S+)
+Value NodeName (\S+)
+Value KernelRelease (\S+)
+Value Machine (\S+)
+Value Processor (\S+)
+Value OS (\S+)
+
+Start
+# Linux my_machine 4.4.0-87-generic x86_64 x86_64 GNU/Linux
+  ^${KernelName} ${NodeName} ${KernelRelease} ${Machine} ${Processor} ${OS} -> Record
+
+EOF

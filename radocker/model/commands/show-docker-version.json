@@ -1,0 +1,18 @@
+{
+  "endpoint": "cli",
+  "type": "bpprov.runners.simple.Sequence",
+  "endpoint-parameters": {
+    "command": "docker -v",
+    "fsm": "fsms/show-docker-version.fsm"
+  },
+  "out-path": [
+  ],
+  "in-path": [{
+    "type": "bpprov.translators.list.Flatten"
+  }, {
+    "type": "bpprov.translators.list.ToDict",
+    "parameters": {
+      "labels": ["dockerVersion", "dockerBuild"]
+    }
+  }]
+ }
